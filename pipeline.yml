@@ -1,11 +1,16 @@
-
+resource_types:
+- name: maven-resource
+  type: docker-image
+  source:
+    repository: patrickcrocker/maven-resource
+    tag: latest
 
 resources:
   - name: application-repo
    # check_every: 1m
     type: git
     source:
-      uri: https://github.com/abuzer307/dotnet-maven-plugin
+      uri: https://github.com/abuzer307/dotnet-maven-plugin.git
       branch: master
       username: abuzer307
       password: d4d57ff7531666b34739e9068ee50fcfb45e6a61
@@ -21,8 +26,8 @@ jobs:
         config:
           platform: linux
           image_resource:
-            type: docker-image
-            source: {repository: java, tag: openjdk-8}
+            type: maven-resource
+            source: {repository: patrickcrocker/maven-resource, tag: latest}
           inputs:
             - name: application-repo
           outputs:
