@@ -3,7 +3,7 @@
 
 set -xe
 
-pip install maven
+sudo apt install maven
 
 cd application-repo
 
