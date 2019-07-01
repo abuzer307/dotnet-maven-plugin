@@ -5,8 +5,10 @@ resources:
    # check_every: 1m
     type: git
     source:
-      uri: https://github.com/kaspersorensen/dotnet-maven-plugin
-      branch: test
+      uri: https://github.com/abuzer307/dotnet-maven-plugin
+      branch: master
+      username: abuzer307
+      password: d4d57ff7531666b34739e9068ee50fcfb45e6a61
 
 
 
