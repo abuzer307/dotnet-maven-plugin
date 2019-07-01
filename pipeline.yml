@@ -27,12 +27,19 @@ jobs:
           platform: linux
           image_resource:
             type: docker-image
-            source: {repository: patrickcrocker/maven-resource, tag: latest}
+            source: {repository: patrickcrocker/maven-resource, tag: 3.5.4-jdk-8}
           inputs:
             - name: application-repo
-
+          outputs:
+            - name: build-location
 
           run:
             path: mvn
-            args: ["-f", "application-repo/pom.xml", "-DskipTests=true", "package"]
-              
+            args:
+              - -exc
+              - |
+                mvn clean install
+#                chmod 777 application-repo/build.sh
+#                ./application-repo/build.sh
+#                pwd
+ #               ls -al application-repo/plugin/target
